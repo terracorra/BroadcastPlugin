@@ -19,4 +19,4 @@ is_enabled: true
 # Message when Chaos Insurgency arrive.
 chaos_entrance: Chaos Insurgency has entered the facility.
 ```
-*You can use: {ScpName} (When SCP's death) , {UnitName}, {UnitNumber}, {WarheadTime} (Time to detonate)*
+*You can use: **{ScpName}** (When SCP's death) , **{UnitName}**, **{UnitNumber}**, **{WarheadTime}** (Time to detonate)*

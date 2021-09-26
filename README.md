@@ -12,6 +12,6 @@ SCP : Secret Laboratory Plugin the show messages when Something happens.
 
 
 # Config
-```
+```swift
 ssf, sf
 ```

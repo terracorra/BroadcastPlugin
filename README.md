@@ -13,5 +13,5 @@ SCP : Secret Laboratory Plugin the show messages when Something happens.
 
 # Config
 ```
-is_enabled: 
+"is_enabled": 
 ```

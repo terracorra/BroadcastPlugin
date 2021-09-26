@@ -12,6 +12,10 @@ SCP : Secret Laboratory Plugin the show messages when Something happens.
 
 
 # Config
+default
 ```
-"is_enabled": 
+# Whether enable this plugin.
+is_enabled: true
+# Message when Chaos Insurgency arrive.
+chaos_entrance: Chaos Insurgency has entered the facility.
 ```

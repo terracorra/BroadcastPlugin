@@ -6,7 +6,7 @@ SCP : Secret Laboratory Plugin the show messages when Something happens.
 
 **Step 2:** Place into your plugins folder.
 
-**Step 3:** Configure it (see the section below)
+**Step 3:** Configure it.
 
 **Step 4:** **Ta-da!**
 

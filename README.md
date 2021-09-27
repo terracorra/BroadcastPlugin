@@ -63,4 +63,5 @@ translation_scp93989: SCP-939-89
 
 # Contact
 Feel free to contant me.
+
 **Discord**: **Polaris**#2314

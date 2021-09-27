@@ -60,3 +60,7 @@ translation_scp93953: SCP-939-53
 translation_scp93989: SCP-939-89
 ```
 *You can use: **{ScpName}** (When SCP's death) , **{UnitName}**, **{UnitNumber}**, **{WarheadTime}** (Seconds to detonate)*
+
+# Contact
+Feel free to contant me.
+**Discord**: __Polaris__#2314

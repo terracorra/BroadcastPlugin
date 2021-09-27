@@ -2,7 +2,7 @@
 SCP : Secret Laboratory Plugin the show messages when Something happens.
 
 # How to use
-**Step 1:** Download **BroadcastPlugin.dll** from [here](https://github.com/terracorra/BroadcastPlugin/releases)
+**Step 1:** Download **BroadcastPlugin.dll** from [here](https://github.com/terracorra/BroadcastPlugin/releases/latest)
 
 **Step 2:** Place into your plugins folder.
 
@@ -11,8 +11,7 @@ SCP : Secret Laboratory Plugin the show messages when Something happens.
 **Step 4:** **Ta-da!**
 
 
-# Config
-default
+# Default Config
 ```
 is_enabled: true
 chaos_entrance: Chaos Insurgency has entered the facility.

@@ -1,4 +1,4 @@
-﻿using Exiled.API.Enums;
+using Exiled.API.Enums;
 using Exiled.API.Features;
 using Exiled.API.Extensions;
 using System.Collections.Generic;
@@ -10,9 +10,7 @@ namespace BroadcastPlugin
 	public class Plugin : Plugin<Config>
 	{
 		private EventHandlers EventHandlers;
-		private static readonly Lazy<Plugin> LazyInstance = new Lazy<Plugin>(() => new Plugin());
-		public static Plugin Instance => LazyInstance.Value;
-
+		public static Plugin Instance { get; } = new Plugin();
 		public override void OnEnabled()
 		{
 			base.OnEnabled();

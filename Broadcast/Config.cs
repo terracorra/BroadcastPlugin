@@ -1,13 +1,12 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using Exiled.API.Interfaces;
 
 namespace BroadcastPlugin
 {
-	public sealed class Config : IConfig
+	public class Config : IConfig
 	{
 		public bool IsEnabled { get; set; } = true;
-
-		public string ChaosEntrance { get; set; } = "Chaos Insurgency has entered the facility";
+		public string ChaosEntrance { get; set; } = "Chaos Insurgency has entered the facility.";
 		public ushort ChaosEntranceDuration { get; set; } = 10;
 		public bool ChaosEntranceOnlyCdpAndChi { get; set; } = true;
 		public string NtfEntrance { get; set; } = "MTF {UnitName}-{UnitNumber} has entered the facility\nRemaining SCPs : {ScpCount}";
@@ -18,7 +17,7 @@ namespace BroadcastPlugin
 		public string ScpContainedByRsc { get; set; } = "{ScpName} contained successfully. Containment unit : Science Personnel";
 		public string ScpContainedByMtf { get; set; } = "{ScpName} contained successfully. Containment unit : {UnitName}";
 		public string ScpContainedByChi { get; set; } = "{ScpName} contained successfully. Containment unit : Chaos Insurgency";
-		public string ScpContaindeByTesla { get; set; } = "{ScpName} terminated by Tesla gate";
+		public string ScpContaindedByTesla { get; set; } = "{ScpName} terminated by Tesla gate";
 		public string ScpContainedByNuke { get; set; } = "{ScpName} terminated by Alpha Warhead";
 		public string ScpContainedByDecon { get; set; } = "{ScpName} lost in Decontamination Sequence.";
 		public string ScpContainedByMicrohidCdp { get; set; } = "{ScpName} contained successfully. Containment unit : Micro H.I.D ( Class-D Personnel )";

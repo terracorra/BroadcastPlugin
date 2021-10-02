@@ -39,7 +39,7 @@ broadcast_plugin:
   scp_contained_by_microhid_rsc: '{ScpName} contained successfully. Containment unit : Micro H.I.D ( Science Personnel )'
   scp_contained_by_microhid_mtf: '{ScpName} contained successfully. Containment unit : Micro H.I.D ( {UnitName} )'
   scp_contained_by_microhid_chi: '{ScpName} contained successfully. Containment unit : Micro H.I.D ( Chaos Insurgency )'
-  scp_contained_by_unknown: '{ScpName} 이(가) 격리되었습니다.'
+  scp_contained_by_unknown: '{ScpName} contained successfully. Containment unit : Unknown'
   scp079_recontained: '{ScpName} contained successfully.'
   warhead_duration: 10
   warhead_start: >-

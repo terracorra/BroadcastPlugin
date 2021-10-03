@@ -13,7 +13,7 @@ SCP : Secret Laboratory Plugin the show messages when Something happens.
 
 # Default Config
 ```
-broadcast_plugin:
+BC:
   is_enabled: true
   chaos_entrance: Chaos Insurgency has entered the facility.
   chaos_entrance_duration: 10

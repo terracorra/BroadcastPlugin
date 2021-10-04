@@ -1,5 +1,5 @@
 # BroadcastPlugin
-SCP : Secret Laboratory Plugin the show messages when Something happens.
+SCP : Secret Laboratory Plugin that show messages when Something happens.
 
 # How to use
 **Step 1:** Download **BroadcastPlugin.dll** from [here](https://github.com/terracorra/BroadcastPlugin/releases/latest)

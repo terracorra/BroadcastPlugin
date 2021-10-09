@@ -61,21 +61,30 @@ BC:
 
     The removal of organic substances has now begun.
   generator_duration: 8
-  generator1: 1 out of 5 generators activated.
-  generator2: 2 out of 5 generators activated.
-  generator3: 3 out of 5 generators activated.
-  generator4: 4 out of 5 generators activated.
-  generator5: 5 out of 5 generators activated.
-  # Translation for {ScpName}
+  # It doesn't works well. It can make an error. Recommand to empty this.
+  generator1: 1 out of 3 generators activated.
+  # It doesn't works well. It can make an error. Recommand to empty this.
+  generator2: 2 out of 3 generators activated.
+  # It doesn't works well. It can make an error. Recommand to empty this.
+  generator3: 3 out of 3 generators activated.
+  # It doesn't works well. It can make an error. Recommand to empty this.
   translation_scp049: SCP-049
   translation_scp079: SCP-079
   translation_scp096: SCP-096
   translation_scp106: SCP-106
-  translation_scp173: SCP-173
+  translation_scp173: SCP173
   translation_scp93953: SCP-939-53
   translation_scp93989: SCP-939-89
+  # Translation for {ScpName}
+  player_join_duration: 5
+  player_join: >-
+    Welcome {Player}!
+
+    {PlayersCount} are playing in this server
+
+    Round Duration: {RoundDurationMinutes} m {RoundDurationSeconds} s
 ```
-*You can use: **{ScpName}** (When SCP's death) , **{UnitName}**, **{UnitNumber}**, **{WarheadTime}** (Seconds to detonate)*
+*You can use: **{ScpName}** (When SCP's death) , **{UnitName}**, **{UnitNumber}**, **{WarheadTime}** **{Player}**, **{PlayersCount}**, **{RoundDurationMinutes}** and **{RoundDurationSeconds}***
 
 # Contact
 Feel free to contant me.

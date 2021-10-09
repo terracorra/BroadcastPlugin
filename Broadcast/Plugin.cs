@@ -4,6 +4,7 @@ using Exiled.Events.EventArgs;
 using Exiled.API.Features;
 using System;
 using System.Collections.Generic;
+using PlayableScps;
 
 
 namespace BroadcastPlugin
@@ -13,8 +14,8 @@ namespace BroadcastPlugin
 		public override string Author { get; } = "Polaris";
 		public override string Name { get; } = "BroadcastPlugin";
 		public override string Prefix { get; } = "BC";
-		public override Version Version { get; } = new Version(1, 2);
-		public override Version RequiredExiledVersion { get; } = new Version(2, 14, 0);
+		public override Version Version { get; } = new Version(2, 0);
+		public override Version RequiredExiledVersion { get; } = new Version(3, 0, 0);
 
 		public override PluginPriority Priority { get; } = PluginPriority.Default;
 
@@ -32,6 +33,8 @@ namespace BroadcastPlugin
 				events.Map.GeneratorActivated += OnGeneratorActivated;
 				events.Warhead.Starting += OnWarheadStarting;
 				events.Warhead.Stopping += OnWarheadStopping;
+                events.Server.WaitingForPlayers += OnWaitingForPlayers;
+                events.Player.Verified += OnVerified;
 
 				Log.Info($"Loaded Complete.");
 			}
@@ -52,13 +55,15 @@ namespace BroadcastPlugin
 			events.Map.GeneratorActivated += OnGeneratorActivated;
 			events.Warhead.Starting += OnWarheadStarting;
 			events.Warhead.Stopping += OnWarheadStopping;
-		}
+            events.Server.WaitingForPlayers -= OnWaitingForPlayers;
+            events.Player.Verified -= OnVerified;
+        }
 
         public void OnDied(DiedEventArgs ev)
         {
             if (ev.Target.Role == RoleType.Scp049)
             {
-                if (ev.HitInformations.Tool == 18)
+                if (ev.HitInformations.Tool == DamageTypes.MicroHID)
                 {
                     if (ev.Killer.Role == RoleType.ClassD)
                     {
@@ -72,7 +77,7 @@ namespace BroadcastPlugin
                     {
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidMtf.Replace("{ScpName}", Config.Translation_Scp049).Replace("{UnitName}", ev.Killer.UnitName), Broadcast.BroadcastFlags.Normal, false);
                     }
-                    else if (ev.Killer.Role == RoleType.ChaosInsurgency)
+                    else if (ev.Killer.Team == Team.CHI)
                     {
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidChi.Replace("{ScpName}", Config.Translation_Scp049), Broadcast.BroadcastFlags.Normal, false);
                     }
@@ -89,19 +94,19 @@ namespace BroadcastPlugin
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMtf.Replace("{ScpName}", Config.Translation_Scp049).Replace("{UnitName}", ev.Killer.UnitName), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.Killer.Role == RoleType.ChaosInsurgency)
+                else if (ev.Killer.Team == Team.CHI)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByChi.Replace("{ScpName}", Config.Translation_Scp049), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 2)
+                else if (ev.HitInformations.Tool == DamageTypes.Nuke)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByNuke.Replace("{ScpName}", Config.Translation_Scp049), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 4)
+                else if (ev.HitInformations.Tool == DamageTypes.Decont)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByDecon.Replace("{ScpName}", Config.Translation_Scp049), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 5)
+                else if (ev.HitInformations.Tool == DamageTypes.Tesla)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContaindedByTesla.Replace("{ScpName}", Config.Translation_Scp049), Broadcast.BroadcastFlags.Normal, false);
                 }
@@ -112,7 +117,7 @@ namespace BroadcastPlugin
             }
             else if (ev.Target.Role == RoleType.Scp096)
             {
-                if (ev.HitInformations.Tool == 18)
+                if (ev.HitInformations.Tool == DamageTypes.MicroHID)
                 {
                     if (ev.Killer.Role == RoleType.ClassD)
                     {
@@ -126,7 +131,7 @@ namespace BroadcastPlugin
                     {
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidMtf.Replace("{ScpName}", Config.Translation_Scp049).Replace("{UnitName}", ev.Killer.UnitName), Broadcast.BroadcastFlags.Normal, false);
                     }
-                    else if (ev.Killer.Role == RoleType.ChaosInsurgency)
+                    else if (ev.Killer.Team == Team.CHI)
                     {
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidChi.Replace("{ScpName}", Config.Translation_Scp049), Broadcast.BroadcastFlags.Normal, false);
                     }
@@ -143,19 +148,19 @@ namespace BroadcastPlugin
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMtf.Replace("{ScpName}", Config.Translation_Scp096).Replace("{UnitName}", ev.Killer.UnitName), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.Killer.Role == RoleType.ChaosInsurgency)
+                else if (ev.Killer.Team == Team.CHI)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByChi.Replace("{ScpName}", Config.Translation_Scp096), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 2)
+                else if (ev.HitInformations.Tool == DamageTypes.Nuke)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByNuke.Replace("{ScpName}", Config.Translation_Scp096), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 4)
+                else if (ev.HitInformations.Tool == DamageTypes.Decont)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByDecon.Replace("{ScpName}", Config.Translation_Scp096), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 5)
+                else if (ev.HitInformations.Tool == DamageTypes.Tesla)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContaindedByTesla.Replace("{ScpName}", Config.Translation_Scp096), Broadcast.BroadcastFlags.Normal, false);
                 }
@@ -166,7 +171,7 @@ namespace BroadcastPlugin
             }
             else if (ev.Target.Role == RoleType.Scp106)
             {
-                if (ev.HitInformations.Tool == 18)
+                if (ev.HitInformations.Tool == DamageTypes.MicroHID)
                 {
                     if (ev.Killer.Role == RoleType.ClassD)
                     {
@@ -180,7 +185,7 @@ namespace BroadcastPlugin
                     {
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidMtf.Replace("{ScpName}", Config.Translation_Scp106).Replace("{UnitName}", ev.Killer.UnitName), Broadcast.BroadcastFlags.Normal, false);
                     }
-                    else if (ev.Killer.Role == RoleType.ChaosInsurgency)
+                    else if (ev.Killer.Team == Team.CHI)
                     {
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidChi.Replace("{ScpName}", Config.Translation_Scp106), Broadcast.BroadcastFlags.Normal, false);
                     }
@@ -197,19 +202,19 @@ namespace BroadcastPlugin
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMtf.Replace("{ScpName}", Config.Translation_Scp106).Replace("{UnitName}", ev.Killer.UnitName), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.Killer.Role == RoleType.ChaosInsurgency)
+                else if (ev.Killer.Team == Team.CHI)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByChi.Replace("{ScpName}", Config.Translation_Scp106), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 2)
+                else if (ev.HitInformations.Tool == DamageTypes.Nuke)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByNuke.Replace("{ScpName}", Config.Translation_Scp106), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 4)
+                else if (ev.HitInformations.Tool == DamageTypes.Decont)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByDecon.Replace("{ScpName}", Config.Translation_Scp106), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 5)
+                else if (ev.HitInformations.Tool == DamageTypes.Tesla)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContaindedByTesla.Replace("{ScpName}", Config.Translation_Scp106), Broadcast.BroadcastFlags.Normal, false);
                 }
@@ -220,7 +225,7 @@ namespace BroadcastPlugin
             }
             else if (ev.Target.Role == RoleType.Scp173)
             {
-                if (ev.HitInformations.Tool == 18)
+                if (ev.HitInformations.Tool == DamageTypes.MicroHID)
                 {
                     if (ev.Killer.Role == RoleType.ClassD)
                     {
@@ -234,7 +239,7 @@ namespace BroadcastPlugin
                     {
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidMtf.Replace("{ScpName}", Config.Translation_Scp173).Replace("{UnitName}", ev.Killer.UnitName), Broadcast.BroadcastFlags.Normal, false);
                     }
-                    else if (ev.Killer.Role == RoleType.ChaosInsurgency)
+                    else if (ev.Killer.Team == Team.CHI)
                     {
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidChi.Replace("{ScpName}", Config.Translation_Scp173), Broadcast.BroadcastFlags.Normal, false);
                     }
@@ -251,19 +256,19 @@ namespace BroadcastPlugin
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMtf.Replace("{ScpName}", Config.Translation_Scp173).Replace("{UnitName}", ev.Killer.UnitName), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.Killer.Role == RoleType.ChaosInsurgency)
+                else if (ev.Killer.Team == Team.CHI)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByChi.Replace("{ScpName}", Config.Translation_Scp173), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 2)
+                else if (ev.HitInformations.Tool == DamageTypes.Nuke)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByNuke.Replace("{ScpName}", Config.Translation_Scp173), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 4)
+                else if (ev.HitInformations.Tool == DamageTypes.Decont)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByDecon.Replace("{ScpName}", Config.Translation_Scp173), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 5)
+                else if (ev.HitInformations.Tool == DamageTypes.Tesla)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContaindedByTesla.Replace("{ScpName}", Config.Translation_Scp173), Broadcast.BroadcastFlags.Normal, false);
                 }
@@ -274,7 +279,7 @@ namespace BroadcastPlugin
             }
             else if (ev.Target.Role == RoleType.Scp93953)
             {
-                if (ev.HitInformations.Tool == 18)
+                if (ev.HitInformations.Tool == DamageTypes.MicroHID)
                 {
                     if (ev.Killer.Role == RoleType.ClassD)
                     {
@@ -288,7 +293,7 @@ namespace BroadcastPlugin
                     {
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidMtf.Replace("{ScpName}", Config.Translation_Scp93953).Replace("{UnitName}", ev.Killer.UnitName), Broadcast.BroadcastFlags.Normal, false);
                     }
-                    else if (ev.Killer.Role == RoleType.ChaosInsurgency)
+                    else if (ev.Killer.Team == Team.CHI)
                     {
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidChi.Replace("{ScpName}", Config.Translation_Scp93953), Broadcast.BroadcastFlags.Normal, false);
                     }
@@ -305,19 +310,19 @@ namespace BroadcastPlugin
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMtf.Replace("{ScpName}", Config.Translation_Scp93953).Replace("{UnitName}", ev.Killer.UnitName), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.Killer.Role == RoleType.ChaosInsurgency)
+                else if (ev.Killer.Team == Team.CHI)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByChi.Replace("{ScpName}", Config.Translation_Scp93953), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 2)
+                else if (ev.HitInformations.Tool == DamageTypes.Nuke)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByNuke.Replace("{ScpName}", Config.Translation_Scp93953), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 4)
+                else if (ev.HitInformations.Tool == DamageTypes.Decont)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByDecon.Replace("{ScpName}", Config.Translation_Scp93953), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 5)
+                else if (ev.HitInformations.Tool == DamageTypes.Tesla)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContaindedByTesla.Replace("{ScpName}", Config.Translation_Scp93953), Broadcast.BroadcastFlags.Normal, false);
                 }
@@ -328,7 +333,7 @@ namespace BroadcastPlugin
             }
             else if (ev.Target.Role == RoleType.Scp93989)
             {
-                if (ev.HitInformations.Tool == 18)
+                if (ev.HitInformations.Tool == DamageTypes.MicroHID)
                 {
                     if (ev.Killer.Role == RoleType.ClassD)
                     {
@@ -342,7 +347,7 @@ namespace BroadcastPlugin
                     {
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidMtf.Replace("{ScpName}", Config.Translation_Scp93989).Replace("{UnitName}", ev.Killer.UnitName), Broadcast.BroadcastFlags.Normal, false);
                     }
-                    else if (ev.Killer.Role == RoleType.ChaosInsurgency)
+                    else if (ev.Killer.Team == Team.CHI)
                     {
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidChi.Replace("{ScpName}", Config.Translation_Scp93989), Broadcast.BroadcastFlags.Normal, false);
                     }
@@ -359,19 +364,19 @@ namespace BroadcastPlugin
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMtf.Replace("{ScpName}", Config.Translation_Scp93989).Replace("{UnitName}", ev.Killer.UnitName), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.Killer.Role == RoleType.ChaosInsurgency)
+                else if (ev.Killer.Team == Team.CHI)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByChi.Replace("{ScpName}", Config.Translation_Scp93989), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 2)
+                else if (ev.HitInformations.Tool == DamageTypes.Nuke)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByNuke.Replace("{ScpName}", Config.Translation_Scp93989), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 4)
+                else if (ev.HitInformations.Tool == DamageTypes.Decont)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByDecon.Replace("{ScpName}", Config.Translation_Scp93989), Broadcast.BroadcastFlags.Normal, false);
                 }
-                else if (ev.HitInformations.Tool == 5)
+                else if (ev.HitInformations.Tool == DamageTypes.Tesla)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContaindedByTesla.Replace("{ScpName}", Config.Translation_Scp93989), Broadcast.BroadcastFlags.Normal, false);
                 }
@@ -451,12 +456,14 @@ namespace BroadcastPlugin
         {
             Map.Broadcast(Config.DeconDuration, Config.DeconLockedDown, Broadcast.BroadcastFlags.Normal, false);
         }
+        public int gencount;
+        public void OnWaitingForPlayers()
+        {
+            gencount = 0;
+        }
         public void OnGeneratorActivated(GeneratorActivatedEventArgs ev)
         {
-            if (Generator079.mainGenerator.forcedOvercharge)
-                return;
-
-            int gencount = Generator079.mainGenerator.NetworktotalVoltage += 1;
+            gencount += 1;
             if (gencount == 1)
             {
                 Map.Broadcast(Config.GeneratorDuration, Config.Generator1, Broadcast.BroadcastFlags.Normal, false);
@@ -469,14 +476,6 @@ namespace BroadcastPlugin
             {
                 Map.Broadcast(Config.GeneratorDuration, Config.Generator3, Broadcast.BroadcastFlags.Normal, false);
             }
-            else if (gencount == 4)
-            {
-                Map.Broadcast(Config.GeneratorDuration, Config.Generator4, Broadcast.BroadcastFlags.Normal, false);
-            }
-            else if (gencount == 5)
-            {
-                Map.Broadcast(Config.GeneratorDuration, Config.Generator5, Broadcast.BroadcastFlags.Normal, false);
-            }
         }
         public void OnWarheadStarting(StartingEventArgs ev)
         {
@@ -485,6 +484,10 @@ namespace BroadcastPlugin
         public void OnWarheadStopping(StoppingEventArgs ev)
         {
             Map.Broadcast(Config.WarheadDuration, Config.WarheadStop, Broadcast.BroadcastFlags.Normal, false);
+        }
+        public void OnVerified(VerifiedEventArgs ev)
+        {
+            ev.Player.Broadcast(Config.PlayerJoinDuration, Config.PlayerJoin.Replace("{Player}", $"{ev.Player.Nickname}").Replace("{PlayerCount}", $"{PlayerList.instances.Count}").Replace("{RoundDurationMinutes}", $"{Round.ElapsedTime.Minutes}").Replace("{RoundDurationSeconds}", $"{Round.ElapsedTime.Seconds}"), Broadcast.BroadcastFlags.Normal, false);
         }
     }
 }

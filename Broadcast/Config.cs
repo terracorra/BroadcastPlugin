@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using Exiled.API.Interfaces;
+using Exiled.Loader;
 
 namespace BroadcastPlugin
 {
@@ -37,12 +38,13 @@ namespace BroadcastPlugin
 		public string Decon30s { get; set; } = "Light Containment Zone overall decontamination in T-minus 30 seconds.";
 		public string DeconLockedDown { get; set; } = "Light Containment Zone is locked down and ready for decontamination.\nThe removal of organic substances has now begun.";
 		public ushort GeneratorDuration { get; set; } = 8;
+		[Description("It doesn't works well. It can make an error. Recommand to empty this.")]
 		public string Generator1 { get; set; } = "1 out of 5 generators activated.";
+		[Description("It doesn't works well. It can make an error. Recommand to empty this.")]
 		public string Generator2 { get; set; } = "2 out of 5 generators activated.";
+		[Description("It doesn't works well. It can make an error. Recommand to empty this.")]
 		public string Generator3 { get; set; } = "3 out of 5 generators activated.";
-		public string Generator4 { get; set; } = "4 out of 5 generators activated.";
-		public string Generator5 { get; set; } = "5 out of 5 generators activated.";
-		[Description("Translation for {ScpName}")]
+		[Description("It doesn't works well. It can make an error. Recommand to empty this.")]
 		public string Translation_Scp049 { get; set; } = "SCP-049";
 		public string Translation_Scp079 { get; set; } = "SCP-079";
 		public string Translation_Scp096 { get; set; } = "SCP-096";
@@ -50,5 +52,8 @@ namespace BroadcastPlugin
 		public string Translation_Scp173 { get; set; } = "SCP-173";
 		public string Translation_Scp93953 { get; set; } = "SCP-939-53";
 		public string Translation_Scp93989 { get; set; } = "SCP-939-89";
+		[Description("Translation for {ScpName}")]
+		public ushort PlayerJoinDuration { get; set; } = 5;
+		public string PlayerJoin { get; set; } = "Welcome {Player}!\n{PlayersCount} are playing in this server\nRound Duration: {RoundDurationMinutes} m {RoundDurationSeconds} s";
 	}
 }

@@ -46,6 +46,7 @@ BC:
     Alpha Warhead Detonation engaged.
 
     The underground section in the facility will be detonated in {WarheadTime} seconds
+  warhead_start_auto: Alpha Warhead Detonation engaged automatically.
   warhead_stop: >-
     Alpha Warhead Detonation canceled.
 

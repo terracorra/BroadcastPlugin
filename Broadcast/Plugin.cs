@@ -82,7 +82,7 @@ namespace BroadcastPlugin
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidChi.Replace("{ScpName}", Config.Translation_Scp049), Broadcast.BroadcastFlags.Normal, false);
                     }
                 }
-                if (ev.Killer.Role == RoleType.ClassD)
+                else if (ev.Killer.Role == RoleType.ClassD)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByCdp.Replace("{ScpName}", Config.Translation_Scp049), Broadcast.BroadcastFlags.Normal, false);
                 }
@@ -136,7 +136,7 @@ namespace BroadcastPlugin
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidChi.Replace("{ScpName}", Config.Translation_Scp049), Broadcast.BroadcastFlags.Normal, false);
                     }
                 }
-                if (ev.Killer.Role == RoleType.ClassD)
+                else if (ev.Killer.Role == RoleType.ClassD)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByCdp.Replace("{ScpName}", Config.Translation_Scp096), Broadcast.BroadcastFlags.Normal, false);
                 }
@@ -190,7 +190,7 @@ namespace BroadcastPlugin
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidChi.Replace("{ScpName}", Config.Translation_Scp106), Broadcast.BroadcastFlags.Normal, false);
                     }
                 }
-                if (ev.Killer.Role == RoleType.ClassD)
+                else if (ev.Killer.Role == RoleType.ClassD)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByCdp.Replace("{ScpName}", Config.Translation_Scp106), Broadcast.BroadcastFlags.Normal, false);
                 }
@@ -244,7 +244,7 @@ namespace BroadcastPlugin
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidChi.Replace("{ScpName}", Config.Translation_Scp173), Broadcast.BroadcastFlags.Normal, false);
                     }
                 }
-                if (ev.Killer.Role == RoleType.ClassD)
+                else if (ev.Killer.Role == RoleType.ClassD)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByCdp.Replace("{ScpName}", Config.Translation_Scp173), Broadcast.BroadcastFlags.Normal, false);
                 }
@@ -352,7 +352,7 @@ namespace BroadcastPlugin
                         Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByMicrohidChi.Replace("{ScpName}", Config.Translation_Scp93989), Broadcast.BroadcastFlags.Normal, false);
                     }
                 }
-                if (ev.Killer.Role == RoleType.ClassD)
+                else if (ev.Killer.Role == RoleType.ClassD)
                 {
                     Map.Broadcast(Config.ScpContainedDuration, Config.ScpContainedByCdp.Replace("{ScpName}", Config.Translation_Scp93989), Broadcast.BroadcastFlags.Normal, false);
                 }

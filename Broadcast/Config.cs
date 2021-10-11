@@ -29,6 +29,7 @@ namespace BroadcastPlugin
 		public string Scp079Recontained { get; set; } = "{ScpName} contained successfully.";
 		public ushort WarheadDuration { get; set; } = 10;
 		public string WarheadStart { get; set; } = "Alpha Warhead Detonation engaged.\nThe underground section in the facility will be detonated in {WarheadTime} seconds";
+		public string WarheadStartAuto { get; set; } = "Alpha Warhead Detonation engaged automatically.";
 		public string WarheadStop { get; set; } = "Alpha Warhead Detonation canceled.\nRestarting systems.";
 		public ushort DeconDuration { get; set; } = 10;
 		public string Decon15m { get; set; } = "Light Containment Zone overall decontamination in T-minus 15 minutes.";

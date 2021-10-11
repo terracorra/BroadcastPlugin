@@ -478,9 +478,14 @@ namespace BroadcastPlugin
             }
         }
         public void OnWarheadStarting(StartingEventArgs ev)
-        {
-            Map.Broadcast(Config.WarheadDuration, Config.WarheadStart.Replace("{WarheadTime}", $"{Warhead.DetonationTimer}"), Broadcast.BroadcastFlags.Normal, false);
-        }
+            if (ev.IsAuto)
+            {
+                Map.Broadcast(Config.WarheadDuration, Config.WarheadStartAuto.Replace("{WarheadTime}", $"{Warhead.DetonationTimer}"), Broadcast.BroadcastFlags.Normal, false);
+            }
+            else
+            {
+                Map.Broadcast(Config.WarheadDuration, Config.WarheadStart.Replace("{WarheadTime}", $"{Warhead.DetonationTimer}"), Broadcast.BroadcastFlags.Normal, false);
+            }
         public void OnWarheadStopping(StoppingEventArgs ev)
         {
             Map.Broadcast(Config.WarheadDuration, Config.WarheadStop, Broadcast.BroadcastFlags.Normal, false);

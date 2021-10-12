@@ -494,7 +494,7 @@ namespace BroadcastPlugin
         }
         public void OnVerified(VerifiedEventArgs ev)
         {
-            ev.Player.Broadcast(Config.PlayerJoinDuration, Config.PlayerJoin.Replace("{Player}", $"{ev.Player.Nickname}").Replace("{PlayersCount}", $"{Player.List.Count}").Replace("{RoundDurationMinutes}", $"{Round.ElapsedTime.Minutes}").Replace("{RoundDurationSeconds}", $"{Round.ElapsedTime.Seconds}"), Broadcast.BroadcastFlags.Normal, false);
+            ev.Player.Broadcast(Config.PlayerJoinDuration, Config.PlayerJoin.Replace("{Player}", $"{ev.Player.Nickname}").Replace("{PlayersCount()}", $"{Player.List.Count}").Replace("{RoundDurationMinutes}", $"{Round.ElapsedTime.Minutes}").Replace("{RoundDurationSeconds}", $"{Round.ElapsedTime.Seconds}"), Broadcast.BroadcastFlags.Normal, false);
         }
     }
 }

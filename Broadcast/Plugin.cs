@@ -14,7 +14,7 @@ namespace BroadcastPlugin
 		public override string Author { get; } = "Polaris";
 		public override string Name { get; } = "BroadcastPlugin";
 		public override string Prefix { get; } = "BC";
-		public override Version Version { get; } = new Version(2, 0, 0);
+		public override Version Version { get; } = new Version(2, 4, 0);
 		public override Version RequiredExiledVersion { get; } = new Version(3, 0, 0);
 
 		public override PluginPriority Priority { get; } = PluginPriority.Default;

@@ -494,13 +494,7 @@ namespace BroadcastPlugin
         }
         public void OnVerified(VerifiedEventArgs ev)
         {
-            List<Player> plist = new List<Player>();
-            plist.Clear();
-            foreach(Player p in Player.List)
-            {
-                plist.Add(p);
-            }
-            ev.Player.Broadcast(Config.PlayerJoinDuration, Config.PlayerJoin.Replace("{Player}", $"{ev.Player.Nickname}").Replace("{PlayersCount}", $"{plist.Count}").Replace("{RoundDurationMinutes}", $"{Round.ElapsedTime.Minutes}").Replace("{RoundDurationSeconds}", $"{Round.ElapsedTime.Seconds}"), Broadcast.BroadcastFlags.Normal, false);
+            ev.Player.Broadcast(Config.PlayerJoinDuration, Config.PlayerJoin.Replace("{Player}", $"{ev.Player.Nickname}").Replace("{PlayersCount}", $"{Player.List.Count}").Replace("{RoundDurationMinutes}", $"{Round.ElapsedTime.Minutes}").Replace("{RoundDurationSeconds}", $"{Round.ElapsedTime.Seconds}"), Broadcast.BroadcastFlags.Normal, false);
         }
     }
 }

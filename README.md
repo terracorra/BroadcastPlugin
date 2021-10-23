@@ -61,6 +61,7 @@ BC:
     Light Containment Zone is locked down and ready for decontamination.
 
     The removal of organic substances has now begun.
+  decon_only_for_lcz: false
   generator_duration: 8
   # It doesn't works well. It can make an error. Recommand to empty this.
   generator1: 1 out of 3 generators activated.

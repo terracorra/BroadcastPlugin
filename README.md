@@ -12,7 +12,7 @@ SCP : Secret Laboratory Plugin that show messages when Something happens.
 
 
 # Default Config
-```
+```yaml
 BC:
   is_enabled: true
   chaos_entrance: Chaos Insurgency has entered the facility.

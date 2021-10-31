@@ -47,6 +47,8 @@ BC:
 
     The underground section in the facility will be detonated in {WarheadTime} seconds
   warhead_start_auto: Alpha Warhead Detonation engaged automatically.
+  # Seconds to show warhead_start_auto.
+  warhead_auto_time: 1500
   warhead_stop: >-
     Alpha Warhead Detonation canceled.
 

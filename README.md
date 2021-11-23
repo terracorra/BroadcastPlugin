@@ -13,7 +13,7 @@ SCP : Secret Laboratory Plugin that show messages when Something happens.
 # About
 Requires **EXILED** 3.7.0+.
 
-**2.5.3** is latest release version.
+**2.5.3** is the latest release version.
 # Default Config
 ```yaml
 BC:

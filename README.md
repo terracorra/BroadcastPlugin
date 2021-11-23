@@ -10,7 +10,10 @@ SCP : Secret Laboratory Plugin that show messages when Something happens.
 
 **Step 4:** **Ta-da!**
 
+# About
+Requires **EXILED** 3.7.0+.
 
+**2.5.3** is latest release version.
 # Default Config
 ```yaml
 BC:
@@ -91,6 +94,10 @@ BC:
 *You can use: **{ScpName}** (When SCP's death) , **{UnitName}**, **{UnitNumber}**, **{WarheadTime}** **{Player}**, **{PlayersCount}**, **{RoundDurationMinutes}** and **{RoundDurationSeconds}***
 
 # Contact
-Feel free to contant me.
+If you found a bug or need help,
+Feel free to contact me.
+
+Bug reoprts are very helpful to improve.
+
 
 **Discord**: **Polaris**#2314

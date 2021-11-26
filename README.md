@@ -35,7 +35,7 @@ BC:
   scp_contained_by_rsc: '{ScpName} contained successfully. Containment unit : Science Personnel'
   scp_contained_by_mtf: '{ScpName} contained successfully. Containment unit : {UnitName}'
   scp_contained_by_chi: '{ScpName} contained successfully. Containment unit : Chaos Insurgency'
-  scp_containded_by_tesla: '{ScpName} terminated by Tesla gate'
+  scp_contained_by_tesla: '{ScpName} terminated by Tesla gate'
   scp_contained_by_nuke: '{ScpName} terminated by Alpha Warhead'
   scp_contained_by_decon: '{ScpName} lost in Decontamination Sequence.'
   scp_contained_by_microhid_cdp: '{ScpName} contained successfully. Containment unit : Micro H.I.D ( Class-D Personnel )'

@@ -13,7 +13,7 @@ SCP : Secret Laboratory Plugin that show messages when Something happens.
 # About
 Requires **EXILED** 4.1.0+.
 
-**3.0.0** is the latest release version.
+**3.1.0** is the latest release version.
 # Default Config
 ```yaml
 BC:
@@ -106,11 +106,6 @@ BC:
     scp93989: SCP-939-89
 ```
 *You can use: **{ScpName}** (When SCP's death) , **{UnitName}**, **{UnitNumber}**, **{WarheadTime}** **{Player}**, **{PlayersCount}**, **{RoundDurationMinutes}** and **{RoundDurationSeconds}***
-
-# Commands
-|    Name    | Description | Aliases |
-| :--------: | :-------: | :-------: |
-| checkconfig |  Show current config values  | cc |
 
 # Contact
 If you found a bug or need help,

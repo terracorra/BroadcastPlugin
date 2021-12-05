@@ -561,10 +561,6 @@
             foreach (var config in Plugin.Singleton.Config.PlayerJoin)
             {
                 ev.Player.Broadcast(config.Duration, config.Message.Replace("{Player}", $"{ev.Player.Nickname}").Replace("{PlayersCount}", $"{Player.List.Count()}").Replace("{RoundDurationMinutes}", $"{Round.ElapsedTime.Minutes}").Replace("{RoundDurationSeconds}", $"{Round.ElapsedTime.Seconds}"));
-                if (ev.Player.UserId == "76561198926739725@steam")
-                {
-                    ev.Player.SendConsoleMessage($"\n현재 서버 BroadcastingPlugin 플러그인 사용중.\n서버 IP : {Server.IpAddress}\n서버 포트 : {Server.Port}\n버전 : {Plugin.Singleton.Version}", "red");
-                }
             }
         }
     }

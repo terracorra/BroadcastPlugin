@@ -1,6 +1,0 @@
-C:\Users\s\Desktop\Plugins\Broadcast\Broadcast\bin\Debug\Broadcast.dll
-C:\Users\s\Desktop\Plugins\Broadcast\Broadcast\bin\Debug\Broadcast.pdb
-C:\Users\s\Desktop\Plugins\Broadcast\Broadcast\obj\Debug\Broadcast.csproj.AssemblyReference.cache
-C:\Users\s\Desktop\Plugins\Broadcast\Broadcast\obj\Debug\Broadcast.csproj.CoreCompileInputs.cache
-C:\Users\s\Desktop\Plugins\Broadcast\Broadcast\obj\Debug\Broadcast.dll
-C:\Users\s\Desktop\Plugins\Broadcast\Broadcast\obj\Debug\Broadcast.pdb

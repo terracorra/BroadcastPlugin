@@ -82,6 +82,20 @@ BC:
       {PlayersCount} are playing in this server
 
       Round Duration: {RoundDurationMinutes} m {RoundDurationSeconds} s
+  escaped:
+  - duration: 7
+    cdp_as_chi: Class D personnel escaped as Chaos Insurgency.
+    cdp_as_mtf: Class D personnel escaped as Mobile Task Force.
+    rsc_as_chi: Science personnel escaped as Chaos Insurgency.
+    rsc_as_mtf: Science personnel escaped as Mobile Task Force.
+  scp079:
+  - duration: 8
+    gen: <i><size=22>Some Generator has been enabled...</size></i>
+    tier2: SCP-079 reached Tier 2.
+    tier3: SCP-079 reached Tier 3.
+    tier4: SCP-079 reached Tier 4.
+    tier5: SCP-079 reached Tier 5.
+    only_for_scp: true
   translations:
   - scp049: SCP-049
     scp079: SCP-079
@@ -92,6 +106,11 @@ BC:
     scp93989: SCP-939-89
 ```
 *You can use: **{ScpName}** (When SCP's death) , **{UnitName}**, **{UnitNumber}**, **{WarheadTime}** **{Player}**, **{PlayersCount}**, **{RoundDurationMinutes}** and **{RoundDurationSeconds}***
+
+# Commands
+|    Name    | Description | Aliases |
+| :--------: | :-------: | :-------: |
+| checkconfig |  Show current config values  | cc |
 
 # Contact
 If you found a bug or need help,

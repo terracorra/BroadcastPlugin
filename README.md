@@ -1,3 +1,6 @@
+me very lazy.
+I update it when I want to.
+
 # BroadcastPlugin
 SCP : Secret Laboratory Plugin that show messages when Something happens.
 

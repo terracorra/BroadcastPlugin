@@ -1,4 +1,4 @@
-me very lazy.
+I am very lazy.
 I update it when I want to.
 
 # BroadcastPlugin

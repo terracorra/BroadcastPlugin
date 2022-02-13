@@ -16,7 +16,7 @@ SCP : Secret Laboratory Plugin that show messages when Something happens.
 # About
 Requires **EXILED** 4.2.3+.
 
-**3.2.0** is the latest release version.
+**3.3.0** is the latest release version.
 # Default Config
 ```yaml
 BC:
@@ -72,7 +72,7 @@ BC:
 
       The removal of organic substances has now begun.
     only_for_lcz: false
-  gen:
+  generators:
   - duration: 10
     gen1: 1 out of 3 generators activated.
     gen2: 2 out of 3 generators activated.
@@ -87,10 +87,10 @@ BC:
       Round Duration: {RoundDurationMinutes} m {RoundDurationSeconds} s
   escaped:
   - duration: 7
-    cdp_as_chi: Class D personnel escaped as Chaos Insurgency.
     cdp_as_mtf: Class D personnel escaped as Mobile Task Force.
-    rsc_as_chi: Science personnel escaped as Chaos Insurgency.
+    cdp_as_chi: Class D personnel escaped as Chaos Insurgency.
     rsc_as_mtf: Science personnel escaped as Mobile Task Force.
+    rsc_as_chi: Science personnel escaped as Chaos Insurgency.
   scp079:
   - duration: 8
     gen: <i><size=22>Some Generator has been enabled...</size></i>
@@ -99,16 +99,36 @@ BC:
     tier4: SCP-079 reached Tier 4.
     tier5: SCP-079 reached Tier 5.
     only_for_scp: true
+  kill_log:
+  - duration: 5
+    message: '{KillerName} ({KillerRole}) killed {TargetName} ({TargetRole}).'
+    message_cuffed: '{KillerName} ({KillerRole}) killed {TargetName} ({TargetRole}). (Cuffed)'
+    cuffed_only_cdp_and_rsc: true
+    only_for_rip: true
   translations:
   - scp049: SCP-049
+    scp0492: SCP-049-2
     scp079: SCP-079
     scp096: SCP-096
     scp106: SCP-106
     scp173: SCP-173
     scp93953: SCP-939-53
     scp93989: SCP-939-89
+    classd: Class-D
+    scientist: Scientist
+    facility_guard: FacilityGuard
+    ntf_private: NTF Private
+    ntf_sergeant: NTF Sergeant
+    ntf_captain: NTF Captain
+    ntf_specialist: NTF Specialist
+    chaos_rifleman: CI Rifleman
+    chaos_repressor: CI Repressor
+    chaos_marauder: CI Marauder
+    chaos_conscript: CI Conscript
+    tutorial: Tutorial
+    spectator: Spectator
+    unknown: Unknown
 ```
-*You can use: **{ScpName}** (When SCP's death) , **{UnitName}**, **{UnitNumber}**, **{WarheadTime}** **{Player}**, **{PlayersCount}**, **{RoundDurationMinutes}** and **{RoundDurationSeconds}***
 
 # Contact
 If you found a bug or need help,

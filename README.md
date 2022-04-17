@@ -14,9 +14,9 @@ SCP : Secret Laboratory Plugin that show messages when Something happens.
 **Step 4:** **Ta-da!**
 
 # About
-Requires **EXILED** 4.2.5+.
+Requires **EXILED** 5.0.0+.
 
-**3.3.2** is the latest release version.
+**4.0.0** is the latest release version.
 # Default Config
 ```yaml
 BC:
